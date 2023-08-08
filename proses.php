@@ -25,7 +25,19 @@ include 'koneksi.php';
             echo "<br> Tambah Data <a href='index.php'>[Home]</a>";
         } else if($_POST['aksi'] == "edit"){
             echo "Edit Data<a href='index.php'>[Home]</a>";
+           
+            $ID= $_POST['ID'];
+            $Tanggal = $_POST['tanggal'];
+            $Suhu = $_POST['suhu'];
+            $Ph = $_POST['ph'];
+            $TDS = $_POST['salinitas'];
+            $DO = $_POST['do'];
+            $Catatan = $_POST['catatan'];
+
+            $query = "UPDATE db_history SET tanggal='$Tanggal', suhu='$Suhu', ph='$Ph', salinitas='$TDS', do='$DO', catatan='$Catatan' WHERE ID = '$ID';";
+            $sql= mysqli_query($conn, $query);
         }
+
     }
     if(isset($_GET['hapus'])){
         $ID = $_GET['hapus'];

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <?php
 include 'koneksi.php';
-    $ID = '';
     $Tanggal = '';
-    $Suhu = '';
+    $Jam= '';
+    $Suhu= '';
     $Ph = '';
     $TDS = '';
     $DO = '';
     $Catatan = '';
-
 
   if (isset($_GET['ubah'])){
     $ID = $_GET['ubah'];
@@ -17,16 +16,15 @@ include 'koneksi.php';
     $sql  = mysqli_query($conn, $query);
 
     $result = mysqli_fetch_assoc($sql);
-
+    //var_dump($result);
+    //die();
     $Tanggal = $result['Tanggal'];
+    $Jam= $result['Jam'];
     $Suhu = $result['Suhu'];
     $Ph = $result['Ph'];
     $TDS = $result['TDS'];
     $DO = $result['DO'];
     $Catatan = $result['Catatan'];
-
-    //var_dump($result);
-    //die();
   }
 ?>
 <html lang="en">
@@ -53,12 +51,12 @@ include 'koneksi.php';
     </div>
   </nav>
   <div class="container">
-    <form method="POST" action="proses.php">
+    <form method="POST" action="proses.php" enctype="multipart/form-data">
           <p style="margin-top : 13%;"></p>
           <div class="mb-3 row">
             <label for="Tanggal" class="col-sm">Tanggal</label>
             <div class="col-sm-10">
-              <input required type="date" name="tanggal" class="form-control" id="tanggal"">
+              <input required type="date" name="tanggal" class="form-control" id="tanggal">
             </div>
           </div>
         </div>
@@ -66,7 +64,7 @@ include 'koneksi.php';
           <div class="mb-3 row">
             <label for="Suhu" class="col-sm">Suhu</label>
             <div class="col-sm-10">
-              <input required type="number" name="suhu" class="form-control" id="suhu">
+              <input required type="number" name="suhu" class="form-control" id="suhu" placeholder="ex : 30">
             </div>
           </div>
         </div>
@@ -98,7 +96,7 @@ include 'koneksi.php';
           <div class="mb-3 row">
             <label for="Catatan" class="col-sm">Catatan</label>
             <div class="col-sm-10">
-              <textarea required class="form-control" name="catatan" id="catatan"></textarea>
+              <textarea required class="form-control" name="catatan" id="catatan" ></textarea>
             </div>
           </div>
           <div class="mb-3 row mt-4">
