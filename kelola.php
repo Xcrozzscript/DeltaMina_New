@@ -1,4 +1,34 @@
 <!DOCTYPE html>
+<?php
+include 'koneksi.php';
+    $ID = '';
+    $Tanggal = '';
+    $Suhu = '';
+    $Ph = '';
+    $TDS = '';
+    $DO = '';
+    $Catatan = '';
+
+
+  if (isset($_GET['ubah'])){
+    $ID = $_GET['ubah'];
+    
+    $query = "SELECT * FROM db_history WHERE ID = '$ID';";
+    $sql  = mysqli_query($conn, $query);
+
+    $result = mysqli_fetch_assoc($sql);
+
+    $Tanggal = $result['Tanggal'];
+    $Suhu = $result['Suhu'];
+    $Ph = $result['Ph'];
+    $TDS = $result['TDS'];
+    $DO = $result['DO'];
+    $Catatan = $result['Catatan'];
+
+    //var_dump($result);
+    //die();
+  }
+?>
 <html lang="en">
 
 <head>
@@ -28,15 +58,7 @@
           <div class="mb-3 row">
             <label for="Tanggal" class="col-sm">Tanggal</label>
             <div class="col-sm-10">
-              <input type="date" class="form-control" id="tanggal">
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="mb-3 row">
-            <label for="Time" class="col-sm">Jam</label>
-            <div class="col-sm-10">
-              <input type="time" class="form-control" id="jam">
+              <input required type="date" name="tanggal" class="form-control" id="tanggal"">
             </div>
           </div>
         </div>
@@ -44,7 +66,7 @@
           <div class="mb-3 row">
             <label for="Suhu" class="col-sm">Suhu</label>
             <div class="col-sm-10">
-              <input type="number" class="form-control" id="suhu">
+              <input required type="number" name="suhu" class="form-control" id="suhu">
             </div>
           </div>
         </div>
@@ -52,7 +74,7 @@
           <div class="mb-3 row">
             <label for="Ph" class="col-sm">Ph</label>
             <div class="col-sm-10">
-              <input type="number" class="form-control" id="ph">
+              <input required type="number" name="ph" class="form-control" id="ph">
             </div>
           </div>
         </div>
@@ -60,7 +82,7 @@
           <div class="mb-3 row">
             <label for="TDS" class="col-sm">TDS</label>
             <div class="col-sm-10">
-              <input type="number" class="form-control" id="salinitas">
+              <input required type="number" name="salinitas" class="form-control" id="salinitas">
             </div>
           </div>
         </div>
@@ -68,7 +90,7 @@
           <div class="mb-3 row">
             <label for="DO" class="col-sm">DO</label>
             <div class="col-sm-10">
-              <input type="number" class="form-control" id="do">
+              <input required type="number" name="do" class="form-control" id="do">
             </div>
           </div>
         </div>
@@ -76,7 +98,7 @@
           <div class="mb-3 row">
             <label for="Catatan" class="col-sm">Catatan</label>
             <div class="col-sm-10">
-              <textarea class="form-control" id="catatan"></textarea>
+              <textarea required class="form-control" name="catatan" id="catatan"></textarea>
             </div>
           </div>
           <div class="mb-3 row mt-4">

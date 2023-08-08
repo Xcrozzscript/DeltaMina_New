@@ -2,11 +2,12 @@
 <?php
 include 'koneksi.php';
 
-$query = "SELECT * FROM history;";
+$query = "SELECT * FROM db_history;";
 $sql = mysqli_query($conn, $query);
+$no = 0;
 
-
-
+//while($result = mysqli_fetch_assoc($sql)){
+  //echo $result ['Catatan']."<br>";
 
 ?>
 
@@ -70,46 +71,69 @@ $sql = mysqli_query($conn, $query);
           </tr>
         </thead>
         <tbody>
+          <?php
+            while($result = mysqli_fetch_assoc($sql)){
+          ?>
           <tr>
-            <th>
-              <center>1.</center>
-            </th>
-            <th>08-08-2023</th>
-            <th>14:42</th>
-            <th>32</th>
-            <th>12</th>
-            <th>42</th>
-            <th>4</th>
-            <th>Tambak 1</th>
-            <th>
-              <a href="kelola.php?ubah=1" type="button" class="btn btn-success btn-sm">
+            <td>
+              <center>
+                <?php 
+                echo ++$no;
+                ?>
+              </center>
+            </td>
+            <td>
+              <?php 
+                echo $result['Tanggal'];
+                ?>
+                </td>
+            <td>
+            <?php 
+                echo $result['Jam'];
+                ?>
+            </td>
+            <td>
+            <?php 
+                echo $result['Suhu'];
+                ?>
+            </td>
+            <td>
+            <?php 
+                echo $result['Ph'];
+                ?>
+            </td>
+            <td>
+            <?php 
+                echo $result['TDS'];
+                ?>
+            </td>
+            <td>
+            <?php 
+                echo $result['DO'];
+                ?>
+            </td>
+            <td>
+            <?php 
+                echo $result['Catatan'];
+                ?>
+            </td>
+            <td>
+              <a href="kelola.php?ubah=<?php 
+                echo $result['ID'];
+                ?>" type="button" class="btn btn-success btn-sm">
                 <i class="fa fa-pencil"></i>
               </a>
-              <a href="proses.php?hapus=1" type="button" class="btn btn-danger btn-sm">
+              <a href="proses.php?hapus=<?php 
+                echo $result['ID'];
+                ?>
+                " type="button" class="btn btn-danger btn-sm" onclick="return confirm ('Apakah Anda Yakin Menghapusnya???')">
                 <i class="fa fa-trash"></i>
               </a>
-            </th>
+            </td>
           </tr>
-          <tr>
-            <th>
-              <center>2.</center>
-            </th>
-            <th>08-08-2023</th>
-            <th>15:19</th>
-            <th>37</th>
-            <th>12</th>
-            <th>33</th>
-            <th>2</th>
-            <th>Tambak 2</th>
-            <th>
-              <a href="kelola.php?=2" type="button" class="btn btn-success btn-sm">
-                <i class="fa fa-pencil"></i>
-              </a>
-              <a href="proses.php?hapus=2" type="button" class="btn btn-danger btn-sm">
-                <i class="fa fa-trash"></i>
-              </a>
-            </th>
-          </tr>
+          <?php
+          }
+          ?>
         </tbody>
       </table>
     </div>
