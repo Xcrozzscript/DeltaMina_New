@@ -10,4 +10,3 @@
     //echo "Koneksi Berhasil";
     }
     mysqli_select_db($conn,$db);
-?>
