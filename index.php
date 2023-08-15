@@ -48,7 +48,7 @@ $no = 0;
       <i class="fa fa-plus"></i>
       Tambahkan Data
     </a>
-    <a href="" type="button" class="btn btn-primary btn-lg">
+    <a href="laporan.php" type="button" class="btn btn-primary btn-lg">
       <i class="fa fa-plus"></i>
       Create PDF
     </a>
@@ -118,11 +118,12 @@ $no = 0;
                 ?>
             </td>
             <td>
-              <a href="kelola.php?ubah=<?php 
-                echo $result['ID'];
+              <!-- <a href="kelola.php?ubah=  
+                //<?php 
+                //echo $result['ID'];
                 ?>" type="button" class="btn btn-success btn-sm">
                 <i class="fa fa-pencil"></i>
-              </a>
+              </a> -->
               <a href="proses.php?hapus=<?php 
                 echo $result['ID'];
                 ?>
@@ -140,3 +141,6 @@ $no = 0;
 </body>
 
 </html>
+
+<style>
+    
