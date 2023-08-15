@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <?php
 include 'koneksi.php';
-    $Tanggal = '';
-    $Jam= '';
-    $Suhu= '';
-    $Ph = '';
-    $TDS = '';
-    $DO = '';
-    $Catatan = '';
+$Tanggal = '';
+$Jam = '';
+$Suhu = '';
+$Ph = '';
+$TDS = '';
+$DO = '';
+$Catatan = '';
 
-  if (isset($_GET['ubah'])){
-    $ID = $_GET['ubah'];
-    
-    $query = "SELECT * FROM db_history WHERE ID = '$ID';";
-    $sql  = mysqli_query($conn, $query);
+if (isset($_GET['ubah'])) {
+  $ID = $_GET['ubah'];
 
-    $result = mysqli_fetch_assoc($sql);
-    //var_dump($result);
-    //die();
-    $Tanggal = $result['Tanggal'];
-    $Jam= $result['Jam'];
-    $Suhu = $result['Suhu'];
-    $Ph = $result['Ph'];
-    $TDS = $result['TDS'];
-    $DO = $result['DO'];
-    $Catatan = $result['Catatan'];
-  }
+  $query = "SELECT * FROM db_history WHERE ID = '$ID';";
+  $sql  = mysqli_query($conn, $query);
+
+  $result = mysqli_fetch_assoc($sql);
+  //var_dump($result);
+  //die();
+  $Tanggal = $result['Tanggal'];
+  $Jam = $result['Jam'];
+  $Suhu = $result['Suhu'];
+  $Ph = $result['Ph'];
+  $TDS = $result['TDS'];
+  $DO = $result['DO'];
+  $Catatan = $result['Catatan'];
+}
 ?>
 <html lang="en">
 
@@ -52,77 +52,77 @@ include 'koneksi.php';
   </nav>
   <div class="container">
     <form method="POST" action="proses.php" enctype="multipart/form-data">
-          <p style="margin-top : 13%;"></p>
-          <div class="mb-3 row">
-            <label for="Tanggal" class="col-sm">Tanggal</label>
-            <div class="col-sm-10">
-              <input required type="date" name="tanggal" class="form-control" id="tanggal">
-            </div>
-          </div>
+      <p style="margin-top : 13%;"></p>
+      <div class="mb-3 row">
+        <label for="Tanggal" class="col-sm">Tanggal</label>
+        <div class="col-sm-10">
+          <input required type="date" name="tanggal" class="form-control" id="tanggal">
         </div>
-        <div class="container">
-          <div class="mb-3 row">
-            <label for="Suhu" class="col-sm">Suhu</label>
-            <div class="col-sm-10">
-              <input required type="number" name="suhu" class="form-control" id="suhu" placeholder="ex : 30">
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="mb-3 row">
-            <label for="Ph" class="col-sm">Ph</label>
-            <div class="col-sm-10">
-              <input required type="number" name="ph" class="form-control" id="ph">
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="mb-3 row">
-            <label for="TDS" class="col-sm">TDS</label>
-            <div class="col-sm-10">
-              <input required type="number" name="salinitas" class="form-control" id="salinitas">
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="mb-3 row">
-            <label for="DO" class="col-sm">DO</label>
-            <div class="col-sm-10">
-              <input required type="number" name="do" class="form-control" id="do">
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="mb-3 row">
-            <label for="Catatan" class="col-sm">Catatan</label>
-            <div class="col-sm-10">
-              <textarea required class="form-control" name="catatan" id="catatan" ></textarea>
-            </div>
-          </div>
-          <div class="mb-3 row mt-4">
-            <div class="col">
-              <?php
-                  if (isset($_GET['ubah'])){
-              ?>
-              <button type="submit" name="aksi" value="edit" class="btn btn-primary">
-                <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                Simpan Perubahan
-              </button>
-              <?php
-                  } else{
-              ?>
-              <button type="submit" name="aksi" value="add" class="btn btn-primary">
-                <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                Tambahkan
-              </button>
-              <?php
-              }
-              ?>
-              <a href="index.php" type="button" class="btn btn-danger">
-                <i class="fa fa-reply" aria-hidden="true"></i>
-                Cancel
-              </a>
-            </div>
+      </div>
+  </div>
+  <div class="container">
+    <div class="mb-3 row">
+      <label for="Suhu" class="col-sm">Suhu</label>
+      <div class="col-sm-10">
+        <input required type="number" name="suhu" class="form-control" id="suhu" placeholder="ex : 30">
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="mb-3 row">
+      <label for="Ph" class="col-sm">Ph</label>
+      <div class="col-sm-10">
+        <input required type="number" name="ph" class="form-control" id="ph">
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="mb-3 row">
+      <label for="TDS" class="col-sm">TDS</label>
+      <div class="col-sm-10">
+        <input required type="number" name="salinitas" class="form-control" id="salinitas">
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="mb-3 row">
+      <label for="DO" class="col-sm">DO</label>
+      <div class="col-sm-10">
+        <input required type="number" name="do" class="form-control" id="do">
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="mb-3 row">
+      <label for="Catatan" class="col-sm">Catatan</label>
+      <div class="col-sm-10">
+        <textarea required class="form-control" name="catatan" id="catatan"></textarea>
+      </div>
+    </div>
+    <div class="mb-3 row mt-4">
+      <div class="col">
+        <?php
+        if (isset($_GET['ubah'])) {
+        ?>
+          <button type="submit" name="aksi" value="edit" class="btn btn-primary">
+            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+            Simpan Perubahan
+          </button>
+        <?php
+        } else {
+        ?>
+          <button type="submit" name="aksi" value="add" class="btn btn-primary">
+            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+            Tambahkan
+          </button>
+        <?php
+        }
+        ?>
+        <a href="index.php" type="button" class="btn btn-danger">
+          <i class="fa fa-reply" aria-hidden="true"></i>
+          Cancel
+        </a>
+      </div>
       </form>
 
     </div>
