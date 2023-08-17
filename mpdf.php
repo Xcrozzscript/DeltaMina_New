@@ -1,11 +1,7 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload_real.php';
+require_once __DIR__ .'/vendor/autoload.php';
 
-use Mpdf\Mpdf;
-
-$mpdf = new Mpdf();
-$mpdf->WriteHTML();
-$mpdf->Output
-
-?>
+$mpdf = new \Mpdf\Mpdf();
+$mpdf->WriteHTML('<h1>Hello world!</h1>');
+$mpdf->Output();
