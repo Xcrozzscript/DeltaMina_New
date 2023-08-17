@@ -1,14 +1,18 @@
 <?php
 include 'koneksi.php';
-include 'mpdf.php';
+//include 'mpdf.php';
 
 $query = "SELECT * FROM db_history;";
 $sql = mysqli_query($conn, $query);
 $no = 0;
 
-//while($result = mysqli_fetch_assoc($sql)){
-//echo $result ['Catatan']."<br>";
 
+// cetak ke pdf //
+require_once __DIR__ . '/vendor/autoload.php';
+
+$mpdf = new \Mpdf\Mpdf();
+$nama_file='Record Data';
+ob_start();
 ?>
 
 
@@ -52,7 +56,6 @@ $no = 0;
                 KKN Delta Mina
             </h1>
             <figure class="text-center">
-                <!--       class="table align-middle table-bordered table-hover"-->
                 <table border="1" width="100%" cellpadding="10" cellspacing="0">
                     <thead>
                         <tr>
@@ -124,7 +127,12 @@ $no = 0;
         </div>
 
 </body>
-
+<?php 
+    $html=ob_get_contents();
+    ob_end_clean();
+    $mpdf->WriteHtml(UTF8_endcode($html));
+    $mpdf->Output("".$nama_file.".pdf",);
+    ?>
 </html>
 </body>
 
