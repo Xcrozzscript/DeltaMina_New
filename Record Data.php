@@ -8,5 +8,5 @@ $mpdf = new \Mpdf\Mpdf();
 $Cetak = file_get_contents("cetak.php");
 
 $mpdf->WriteHTML($Cetak);
-$mpdf->Output('Record Data Bulanan');
+$mpdf->Output('Data Bulanan');
 ?>
