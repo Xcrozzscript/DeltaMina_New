@@ -1,8 +1,6 @@
 <?php
-
-use Spipu\Html2Pdf\Html2Pdf;
-
 include 'koneksi.php';
+include 'mpdf.php';
 
 $query = "SELECT * FROM db_history;";
 $sql = mysqli_query($conn, $query);
@@ -54,8 +52,8 @@ $no = 0;
                 KKN Delta Mina
             </h1>
             <figure class="text-center">
-
-                <table class="table align-middle table-bordered table-hover" border="1" align="center">
+                <!--       class="table align-middle table-bordered table-hover"-->
+                <table border="1" width="100%" cellpadding="10" cellspacing="0">
                     <thead>
                         <tr>
                             <th>
@@ -131,13 +129,3 @@ $no = 0;
 </body>
 
 </html>
-
-<?php
-$html2html = ob_get_contents();
-ob_end_clean();
-
-// require_once('../assets/html2pdf/html2pdf.class.php'); iki seng masalah
-$html2pdf = new Html2Pdf('P', 'A4', 'en');
-$html2pdf->writeHTML($html);
-$html2pdf->Output('record_user.pdf', 'D');
-?>
