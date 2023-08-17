@@ -1,18 +1,14 @@
 <?php
 include 'koneksi.php';
-//include 'mpdf.php';
+include 'Record Data.php';
 
 $query = "SELECT * FROM db_history;";
 $sql = mysqli_query($conn, $query);
 $no = 0;
 
+//while($result = mysqli_fetch_assoc($sql)){
+//echo $result ['Catatan']."<br>";
 
-// cetak ke pdf //
-require_once __DIR__ . '/vendor/autoload.php';
-
-$mpdf = new \Mpdf\Mpdf();
-$nama_file='Record Data';
-ob_start();
 ?>
 
 
@@ -127,12 +123,7 @@ ob_start();
         </div>
 
 </body>
-<?php 
-    $html=ob_get_contents();
-    ob_end_clean();
-    $mpdf->WriteHtml(UTF8_endcode($html));
-    $mpdf->Output("".$nama_file.".pdf",);
-    ?>
+
 </html>
 </body>
 
