@@ -467,7 +467,6 @@ class Html2Pdf
     public function addFont($family, $style = '', $file = '')
     {
         $this->pdf->AddFont($family, $style, $file);
-
         return $this;
     }
 

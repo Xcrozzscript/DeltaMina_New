@@ -7,7 +7,7 @@ $sql = mysqli_query($conn, $query);
 $no = 0;
 
 //while($result = mysqli_fetch_assoc($sql)){
-//echo $result ['Catatan']."<br>";
+  //echo $result ['Catatan']."<br>";
 
 ?>
 
@@ -72,79 +72,60 @@ $no = 0;
         </thead>
         <tbody>
           <?php
-          while ($result = mysqli_fetch_assoc($sql)) {
+            while($result = mysqli_fetch_assoc($sql)){
           ?>
-            <tr>
-              <td>
-                <center>
-                  <?php
-                  echo ++$no;
-                  ?>
-                </center>
-              </td>
-              <td>
-                <?php
-                echo $result['Tanggal'];
+          <tr>
+            <td>
+              <center>
+                <?php 
+                echo ++$no;
                 ?>
-              </td>
-              <td>
-                <?php
-                echo $result['Jam'];
-                ?>
-              </td>
-              <td>
-                <?php
-                echo $result['Suhu'];
-                ?>
-              </td>
-              <td>
-                <?php
-                echo $result['Ph'];
-                ?>
-              </td>
-              <td>
-                <?php
-                echo $result['TDS'];
-                ?>
-              </td>
-              <td>
-                <?php
-                echo $result['DO'];
-                ?>
-              </td>
-              <td>
-                <?php
-                echo $result['Catatan'];
-                ?>
-<<<<<<< HEAD
+              </center>
             </td>
             <td>
-              <!-- <a href="kelola.php?ubah=  
-                //<?php 
-                //echo $result['ID'];
-                ?>" type="button" class="btn btn-success btn-sm">
-                <i class="fa fa-pencil"></i>
-              </a> -->
+              <?php 
+                echo $result['Tanggal'];
+                ?>
+                </td>
+            <td>
+            <?php 
+                echo $result['Jam'];
+                ?>
+            </td>
+            <td>
+            <?php 
+                echo $result['Suhu'];
+                ?>
+            </td>
+            <td>
+            <?php 
+                echo $result['Ph'];
+                ?>
+            </td>
+            <td>
+            <?php 
+                echo $result['TDS'];
+                ?>
+            </td>
+            <td>
+            <?php 
+                echo $result['DO'];
+                ?>
+            </td>
+            <td>
+            <?php 
+                echo $result['Catatan'];
+                ?>
+            </td>
+            <td>
               <a href="proses.php?hapus=<?php 
                 echo $result['ID'];
                 ?>
-=======
-              </td>
-              <td>
-                <a href="kelola.php?ubah=<?php
-                                          echo $result['ID'];
-                                          ?>" type="button" class="btn btn-success btn-sm">
-                  <i class="fa fa-pencil"></i>
-                </a>
-                <a href="proses.php?hapus=<?php
-                                          echo $result['ID'];
-                                          ?>
->>>>>>> b3cefd1f163e0c351b700202a24357515bf09666
                 " type="button" class="btn btn-danger btn-sm" onclick="return confirm ('Apakah Anda Yakin Menghapusnya???')">
-                  <i class="fa fa-trash"></i>
-                </a>
-              </td>
-            </tr>
+                <i class="fa fa-trash"></i>
+              </a>
+            </td>
+          </tr>
           <?php
           }
           ?>
@@ -154,6 +135,3 @@ $no = 0;
 </body>
 
 </html>
-
-<style>
-    

@@ -2,7 +2,7 @@
 <?php
 include 'koneksi.php';
 $Tanggal = '';
-$Jam = '';
+$Waktu = '';
 $Suhu = '';
 $Ph = '';
 $TDS = '';
@@ -19,7 +19,7 @@ if (isset($_GET['ubah'])) {
   //var_dump($result);
   //die();
   $Tanggal = $result['Tanggal'];
-  $Jam = $result['Jam'];
+  $Waktu = $result['Waktu'];
   $Suhu = $result['Suhu'];
   $Ph = $result['Ph'];
   $TDS = $result['TDS'];
@@ -61,10 +61,26 @@ if (isset($_GET['ubah'])) {
       </div>
   </div>
   <div class="container">
+  <div class="mb-3 row">
+  <label for="Waktu" class="col-sm-2 col-form-label">
+    Waktu
+  </label>
+<div class="col-sm-10">
+  <select id="waktu" name="waktu" class="form-select">
+    <option selected>Waktu</option>
+    <option value="06:00-10:00">Pagi : 06:00-10:00</option>
+    <option value="10:00-14:00">Siang : 10:00-14:00</option>
+    <option value="14:00-18:00">Sore : 14:00-18:00</option>
+    <option value="18:00-22:00">Malam : 18:00-22:00 </option>
+  </select>
+</div>
+</div>
+</div>
+    <div class="container">
     <div class="mb-3 row">
       <label for="Suhu" class="col-sm">Suhu</label>
       <div class="col-sm-10">
-        <input required type="number" name="suhu" class="form-control" id="suhu" placeholder="ex : 30">
+        <input required type="number" name="suhu" class="form-control" id="suhu">
       </div>
     </div>
   </div>
@@ -127,5 +143,7 @@ if (isset($_GET['ubah'])) {
 
     </div>
 </body>
-
 </html>
+
+
+

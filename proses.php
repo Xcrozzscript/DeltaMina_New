@@ -5,6 +5,7 @@ include 'koneksi.php';
 if (isset($_POST['aksi'])) {
     if ($_POST['aksi'] == "add") {
         $Tanggal = $_POST['tanggal'];
+        $Jam = $_POST['waktu'];
         $Suhu = $_POST['suhu'];
         $Ph = $_POST['ph'];
         $TDS = $_POST['salinitas'];
@@ -28,13 +29,14 @@ if (isset($_POST['aksi'])) {
 
         $ID = $_POST['ID'];
         $Tanggal = $_POST['tanggal'];
+        $Jam = $_POST['jam'];
         $Suhu = $_POST['suhu'];
         $Ph = $_POST['ph'];
         $TDS = $_POST['salinitas'];
         $DO = $_POST['do'];
         $Catatan = $_POST['catatan'];
 
-        $query = "UPDATE db_history SET tanggal='$Tanggal', suhu='$Suhu', ph='$Ph', salinitas='$TDS', do='$DO', catatan='$Catatan' WHERE ID = '$ID';";
+        $query = "UPDATE db_history SET tanggal='$Tanggal',jam='$Jam' suhu='$Suhu', ph='$Ph', salinitas='$TDS', do='$DO', catatan='$Catatan' WHERE ID = '$ID';";
         $sql = mysqli_query($conn, $query);
     }
 }
