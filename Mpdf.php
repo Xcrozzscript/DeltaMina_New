@@ -1,5 +1,5 @@
 <?php
-include'koneksi.php';
+include 'koneksi.php';
 
 
 $query = "SELECT * FROM db_history;";
@@ -8,8 +8,8 @@ $no = 0;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-//$Cetak = file_get_contents("cetak.php");
-$html='<!DOCTYPE html>
+
+$html = '<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -63,28 +63,25 @@ $html='<!DOCTYPE html>
                             <th>Catatan</th>
                         </tr>
                     </thead>';
-                    
-                    while($result = mysqli_fetch_assoc($sql)){
-                        $html .='<tr>
-                            <td>'. ++$no .'</td>
-                            <td>'. $result["Tanggal"] .'</td>
-                            <td>'. $result["Jam"]  .'</td>
-                            <td>'. $result["Suhu"] .'</td>
-                            <td>'. $result["Ph"] .'</td>
-                            <td>'. $result["TDS"] .'</td>
-                            <td>'. $result["DO"] .'</td>
-                            <td>'. $result["Catatan"] .'</td>
+
+while ($result = mysqli_fetch_assoc($sql)) {
+    $html .= '<tr>
+                            <td>' . ++$no . '</td>
+                            <td>' . $result["Tanggal"] . '</td>
+                            <td>' . $result["Jam"]  . '</td>
+                            <td>' . $result["Suhu"] . '</td>
+                            <td>' . $result["Ph"] . '</td>
+                            <td>' . $result["TDS"] . '</td>
+                            <td>' . $result["DO"] . '</td>
+                            <td>' . $result["Catatan"] . '</td>
                         </tr>';
-                    }
+}
 
 
-                    $html .= '</table>
+$html .= '</table>
                     </body>
                     </html>';
 
 $mpdf = new \Mpdf\Mpdf();
 $mpdf->WriteHTML($html);
 $mpdf->Output();
-?>
-
-
