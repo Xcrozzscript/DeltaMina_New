@@ -52,7 +52,7 @@ $no = 0;
             </h1>
             <figure class="text-center">
 
-            <table  border="1" width="100%" cellpadding="10" cellspacing="0">
+                <table border="1" width="100%" cellpadding="10" cellspacing="0">
                     <thead>
                         <tr>
                             <th>

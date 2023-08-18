@@ -1,12 +1,12 @@
 <?php
-    $host = 'localhost';
-    $user = 'root';
-    $pass = '';
-    $db   = 'deltamina';
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+$db   = 'deltamina';
 
-    $conn = mysqli_connect($host,$user,$pass,$db);
+$conn = mysqli_connect($host, $user, $pass, $db);
 
-    if ($conn){
+if ($conn) {
     //echo "Koneksi Berhasil";
-    }
-    mysqli_select_db($conn,$db);
+}
+mysqli_select_db($conn, $db);
