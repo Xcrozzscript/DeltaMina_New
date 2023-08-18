@@ -123,7 +123,7 @@ $no = 0;
         </div>
 
         <p align="center">
-            <input type="button" value="Export PDF" onclick="window.open('Record Data.php', '_blank')">
+            <input type="button" value="Export PDF" onclick="window.open('Mpdf.php', '_blank')">
         </p>
 
 </body>
